@@ -30,28 +30,53 @@ public class SimulationResult {
         this.totalTimeMs = totalTimeMs;
     }
 
-    public double getAverageRetries(){
-      if(totalSamples == 0){
-        return 0;
-      }
-      return (double) totalRetries / totalSamples;
+    public double getAverageRetries() {
+        if (totalSamples == 0) {
+            return 0;
+        }
+        return (double) totalRetries / totalSamples;
     }
 
-    public double getSuccessPercentage(){
-      return (successCount * 100.0) / totalSamples;
+    public double getSuccessPercentage() {
+        if (totalSamples == 0) {
+            return 0;
+        }
+        return (successCount * 100.0) / totalSamples;
     }
 
-    public double getFailurePercentage(){
-      return (failureCount * 100.0) / totalSamples;
+    public double getFailurePercentage() {
+        if (totalSamples == 0) {
+            return 0;
+        }
+        return (failureCount * 100.0) / totalSamples;
     }
 
     public void printSummary() {
-        System.out.println("==============================");
-        System.out.println("Simulacion: " + mode);
+        System.out.println();
+        System.out.println("--- RESUMEN " + mode + " ---");
         System.out.println("Tiempo total: " + totalTimeMs + "ms");
-        System.out.println("Exitosas: " + successCount + " (" + String.format("%.1f", getSuccessPercentage()) + "%)");
-        System.out.println("Fallidas: " + failureCount + " (" + String.format("%.1f", getFailurePercentage()) + "%)");
-        System.out.println("Promedio de reintentos: " + getAverageRetries());
-        System.out.println("==============================");
+        System.out.println("Exitosas: " + successCount +
+                           " (" + String.format("%.1f", getSuccessPercentage()) + "%)");
+        System.out.println("Fallidas: " + failureCount +
+                           " (" + String.format("%.1f", getFailurePercentage()) + "%)");
+        System.out.println("Promedio de reintentos: " +
+                           String.format("%.2f", getAverageRetries()));
+        System.out.println();
+    }
+
+    public String getMode(){
+        return mode; 
+    }
+    public int getSuccessCount(){
+        return successCount; 
+    }
+    public int getFailureCount(){
+        return failureCount; 
+    }
+    public long getTotalTimeMs(){ 
+        return totalTimeMs; 
+    }
+    public int getTotalSamples(){ 
+        return totalSamples; 
     }
 }
