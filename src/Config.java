@@ -16,7 +16,6 @@ public class Config {
     private int poolSize;
     private int timeoutSeconds;
 
-    /* Lee el archivo config.json y lo convierte en un objeto Config. Gson hace todo lo demas mapea cada campo del JSON a cada atributo de cada uno.*/
     private Config() {}
     public static Config load(String filePath) {
         Gson gson = new Gson();

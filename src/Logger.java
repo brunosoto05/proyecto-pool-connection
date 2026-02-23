@@ -12,8 +12,6 @@ public class Logger {
         DateTimeFormatter.ofPattern("HH:mm:ss");
 
     private Logger(String logFilePath) {
-        // hay que decidir si el archivo log se sobreescribe cada vez
-        // o si se acumula con cada ejecucion (append true/false)
         try {
             writer = new PrintWriter(new FileWriter(logFilePath, true));
         } catch (IOException e) {
