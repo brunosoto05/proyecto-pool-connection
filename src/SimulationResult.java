@@ -55,12 +55,9 @@ public class SimulationResult {
         System.out.println();
         System.out.println("--- RESUMEN " + mode + " ---");
         System.out.println("Tiempo total: " + totalTimeMs + "ms");
-        System.out.println("Exitosas: " + successCount +
-                           " (" + String.format("%.1f", getSuccessPercentage()) + "%)");
-        System.out.println("Fallidas: " + failureCount +
-                           " (" + String.format("%.1f", getFailurePercentage()) + "%)");
-        System.out.println("Promedio de reintentos: " +
-                           String.format("%.2f", getAverageRetries()));
+        System.out.println("Exitosas: " + successCount + " (" + String.format("%.1f", getSuccessPercentage()) + "%)");
+        System.out.println("Fallidas: " + failureCount + " (" + String.format("%.1f", getFailurePercentage()) + "%)");
+        System.out.println("Promedio de reintentos: " + String.format("%.2f", getAverageRetries()));
         System.out.println();
     }
 

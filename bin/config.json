@@ -5,8 +5,8 @@
   "user": "postgres",
   "password": "postgres",
   "query": "SELECT * FROM juegos",
-  "sampleCount": 5000,
+  "sampleCount": 25000,
   "maxRetries": 3,
   "poolSize": 50,
-  "timeoutSeconds": 60
+  "timeoutSeconds": 240
 }

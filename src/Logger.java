@@ -8,8 +8,7 @@ public class Logger {
 
     private static Logger instance;
     private PrintWriter writer;
-    private static final DateTimeFormatter FORMATTER =
-        DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
     private Logger(String logFilePath) {
         try {
@@ -29,8 +28,7 @@ public class Logger {
 
     public synchronized void log(String sampleId, String mode, String status, int retries) {
         String timestamp = LocalDateTime.now().format(FORMATTER);
-        String line = "[" + timestamp + "] [" + mode + "] " + sampleId +
-                      " → " + status + " (reintentos: " + retries + ")";
+        String line = "[" + timestamp + "] [" + mode + "] " + sampleId + " → " + status + " (reintentos: " + retries + ")";
         writer.println(line);
         writer.flush();
     }
@@ -45,20 +43,16 @@ public class Logger {
     public synchronized void logSummary(SimulationResult result) {
         writer.println("--- RESUMEN " + result.getMode() + " ---");
         writer.println("Tiempo total: " + result.getTotalTimeMs() + "ms");
-        writer.println("Exitosas: " + result.getSuccessCount() +
-                       " (" + String.format("%.1f", result.getSuccessPercentage()) + "%)");
-        writer.println("Fallidas: " + result.getFailureCount() +
-                       " (" + String.format("%.1f", result.getFailurePercentage()) + "%)");
-        writer.println("Promedio de reintentos: " +
-                       String.format("%.2f", result.getAverageRetries()));
+        writer.println("Exitosas: " + result.getSuccessCount() + " (" + String.format("%.1f", result.getSuccessPercentage()) + "%)");
+        writer.println("Fallidas: " + result.getFailureCount() + " (" + String.format("%.1f", result.getFailurePercentage()) + "%)");
+        writer.println("Promedio de reintentos: " + String.format("%.2f", result.getAverageRetries()));
         writer.println();
         writer.flush();
     }
 
     public void close() {
         if (writer != null) {
-            writer.println("Fin de ejecucion: " +
-                          LocalDateTime.now().format(FORMATTER) + " ===");
+            writer.println("Fin de ejecucion: " + LocalDateTime.now().format(FORMATTER) + " ===");
             writer.flush();
             writer.close();
         }

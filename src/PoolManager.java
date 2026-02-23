@@ -59,8 +59,7 @@ public class PoolManager {
                 System.err.println("Error al crear conexion en grow(): " + e.getMessage());
             }
         }
-        System.out.println("Pool creció " + added + " conexiones, total disponible: " + 
-                           pool.getAvailableCount());
+        System.out.println("Pool creció " + added + " conexiones, total disponible: " + pool.getAvailableCount());
     }
 
     public void shrink() {
@@ -85,8 +84,7 @@ public class PoolManager {
                 }
             }
         }
-        System.out.println("Pool redujo " + removed + " conexiones, total disponible: " + 
-                           pool.getAvailableCount());
+        System.out.println("Pool redujo " + removed + " conexiones, total disponible: " + pool.getAvailableCount());
     }
 
     public void shutdown() {
