@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 5432,
+  "database": "juegos_db",
+  "user": "postgres",
+  "password": "postgres",
+  "query": "SELECT * FROM juegos",
+  "sampleCount": 5000,
+  "maxRetries": 3,
+  "poolSize": 50,
+  "timeoutSeconds": 60
+}
