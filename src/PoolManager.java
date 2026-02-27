@@ -56,7 +56,7 @@ public class PoolManager {
                 pool.addConnection(newConn);
                 added++;
             } catch (SQLException e) {
-                System.err.println("Error al crear conexion en grow(): " + e.getMessage());
+                break;
             }
         }
         System.out.println("Pool creció " + added + " conexiones, total disponible: " + pool.getAvailableCount());

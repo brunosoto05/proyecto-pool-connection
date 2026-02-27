@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class App {
 
-    private static final String CONFIG_PATH = "config.json";
+    private static final String CONFIG_PATH = "./src/config.json";
     private static final String LOG_PATH = "simulation.log";
 
     public static void main(String[] args) {
